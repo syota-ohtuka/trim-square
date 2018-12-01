@@ -1,4 +1,7 @@
 from PIL import Image, ImageFilter
+import sys
+
+args = sys.argv
 
 
 def crop_center(pil_img, crop_width, crop_height):
@@ -12,7 +15,7 @@ def crop_max_square(pil_img):
     return crop_center(pil_img, min(pil_img.size), min(pil_img.size))
 
 
-im = Image.open('./sample.jpg')
+im = Image.open(args[1])
 print(im.format, im.size, im.mode)
 
 im_new = crop_max_square(im)
